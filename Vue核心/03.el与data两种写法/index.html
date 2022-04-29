@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>el与data两种写法</title>
+</head>
+<body>
+    <div id="root">
+        <h3>你好呀，{{name}}</h3>
+    </div>
+    <script>
+        Vue.config.productionTip = false
+
+        const vm = new Vue({
+            //el:"小许B"   --------------------------el的第一种写法
+            // data:{--------------------------------data的第一种写法
+            //     name:"小许B"
+            // }
+
+            //函数式---------------------------------data的第二种写法
+            //data:function()
+            data(){
+                return{
+                    name:"小许B"
+                }
+            }
+        })
+
+        //vm.$mount('#root') ------------------------el的第二种写法
+        setTimeout(()=>{
+            vm.$mount('#root')
+        }, 3000)
+    </script>
+</body>
+</html>

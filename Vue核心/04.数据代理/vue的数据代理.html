@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue的数据代理</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h3>{{name}}</h3>
+    </div>
+    <script>
+        //vm.data.name = vm._data.name
+        Vue.config.productionTip = false
+        let data = {
+            name:"小许B"
+        }
+        const vm = new Vue({
+            el:"#root",
+            data
+        })
+
+        //说明vm.name和vm._data.name两者是一样的
+        console.log("判断vm.name和vm._data.name：", vm.name===vm._data.name);
+
+        //
+        setTimeout(()=>{
+            vm.name = "许婷钧"
+            console.log("将vm.name改为许婷钧")
+        }, 3000)
+
+        setTimeout(()=>{
+            vm._data.name = "小许B"
+            console.log("将vm._data.name改为小许B")
+        }, 6000)
+    </script>
+</body>
+</html>

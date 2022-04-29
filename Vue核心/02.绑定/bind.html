@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>绑定</title>
+</head>
+<body>
+    <div id="root">
+        <h2>以下是绑定</h2>
+        <a :href="url">页面重定向</a>
+        <hr>
+        单向绑定输入：<input type="text" v-bind:value="name"><br>
+        双向绑定输入：<input type="text" v-model="name">
+    </div>
+    <script>
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                url:"../01.Hello/hello.html",
+                name:"小许B"
+            }
+        })
+    </script>
+</body>
+</html>

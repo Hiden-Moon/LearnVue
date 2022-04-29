@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件渲染</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <!-- 使用v-show -->
+    <!-- 当使用频率高时使用 -->
+    <!-- v-show单纯使用原生的display方法，在浏览器中可以看见代码结构 -->
+
+    <!-- 使用v-if -->
+    <!-- v-if会在dom中删除和添加代码结构，不建议频繁操作使用 -->
+    <!-- 效率高一点的可以使用v-else-if，和js中使用方法一样 -->
+    <!-- v-else也一样 -->
+    <div id="root">
+        <h2>当前n值为：{{n}}</h2>
+        <button @click="n++">点我添加值</button>
+        <div v-show="n===1">
+            <h3>你好1</h3>
+        </div>
+        <div v-show="n===2">
+            <h3>你好2</h3>
+        </div>
+        <div v-show="n===3">
+            <h3>你好3</h3>
+        </div>
+
+        <!-- template可以不用影响代码结构，浏览器也不会渲染template标签，template只可以用v-if -->
+        <template v-if="n===4">
+            <h2>你好</h2>
+            <h2>xtj</h2>
+        </template>
+    </div>
+    <script>
+        Vue.config.productionTip = false
+
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                n:0
+            },
+        })
+    </script>
+</body>
+</html>
