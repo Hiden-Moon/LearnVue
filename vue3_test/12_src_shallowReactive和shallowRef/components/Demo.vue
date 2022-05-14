@@ -9,6 +9,7 @@
 
 <script>
   import { reactive, toRefs } from 'vue'
+  //shallowReactive 只处理对象最外层属性的响应式(浅响应式)。shallowRef 只处理基本教据类型的响应式,不进行对象的响应式处理。
   export default {
     name: 'Demo',
     setup() {
@@ -24,9 +25,6 @@
 
       return {
         person,
-        // name: toRef(person, 'name'),
-        // age: toRef(person, 'age'),
-        // salary: toRef(person.job.j1, 'salary'),
         ...toRefs(person),
       }
     },
